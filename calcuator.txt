@@ -1,0 +1,54 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class TaskTwo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Select Option: \n1 reversTwoDigitNumber, \n2 findAverage, \n3 solveTheLinearEquation:");
+        int option = scanner.nextInt();
+
+        switch (option) {
+            case 1:
+                System.out.println("Enter two digit number: ");
+                int a = scanner.nextInt();
+                System.out.println("The result is:");
+                System.out.println(a >= 0 ? reversTwoDigitNumber(a) : "Invalid input!");
+                break;
+            case 2:
+                System.out.println("Enter first number: ");
+                int x = scanner.nextInt();
+                System.out.println("Enter second number: ");
+                int y = scanner.nextInt();
+                System.out.println((x <= 0 || y <= 0) ? "Invalid input!" : "Average is: " + findAverage(x, y));
+                break;
+            case 3:
+                System.out.println("This program will help you to solve Linear Equation: ax + b = 0");
+                System.out.println("Enter number for 'a': ");
+                float c = scanner.nextInt();
+                System.out.println("Enter number for 'b':");
+                float d = scanner.nextInt();
+                if (c != 0) {
+                    System.out.println("Result is:");
+                    System.out.println(solveTheLinearEquation(c, d));
+                } else System.out.println("Invalid input");
+                    break;
+                    default:
+                        System.out.println("Invalid input");
+                }
+        }
+        public static int reversTwoDigitNumber ( int a){
+            int digOne = a / 10;
+            int digTwo = a % 10;
+            int reversNum = (digTwo * 10) + digOne;
+            return reversNum;
+        }
+        public static int findAverage ( int a, int b){
+            int result = (a + b) / 2;
+            return result;
+        }
+        public static float solveTheLinearEquation ( float a, float b){
+            float solved = b*(-1) / a;
+            return solved ;
+        }
+}
