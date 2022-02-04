@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Enter password: ");
         String password = sc.nextLine();
 
-        Admin admin = new Admin();
+        Account admin = new Account();
         if ((email.equalsIgnoreCase(admin.getEmail()) && (password.equalsIgnoreCase(admin.getPassword())))){
             System.out.println("Welcome admin!");
             admin.setLogin(true);
