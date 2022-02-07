@@ -26,4 +26,18 @@ public class VideoStore {
         }
         return sb.toString();
     }
+
+    public void setStoreUser(User resource) {
+        users[numberOfUsers] = resource;
+        numberOfUsers++;
+    }
+
+    public String getAllUsers() {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < numberOfUsers; i++) {
+            sb.append(users[i].getUserDetails());
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 }

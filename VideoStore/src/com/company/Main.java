@@ -21,7 +21,7 @@ public class Main {
                 int option = sc.nextInt();
                 switch (option) {
                     case 1 -> System.out.println("Create new User");
-                    case 2 -> System.out.println("Show all users");
+                    case 2 -> storeUsers();
                     case 3 -> storeResource();
                     case 4 -> System.out.println("All booked VHS and users");
                     case 5 -> {
@@ -49,5 +49,13 @@ public class Main {
         myVideoStore.setStoreResource(new Movie("movie Nine"));
         myVideoStore.setStoreResource(new Movie("movie Ten"));
         System.out.println(myVideoStore.getAllResourcesDetails());
+    }
+
+    private static void storeUsers(){
+        VideoStore myVideoStore = new VideoStore();
+        myVideoStore.setStoreUser(new User("d.dimov@abv.bg","12345", "Dimo Dimov", false));
+        myVideoStore.setStoreUser(new User("c.conev@abv.bg","12345", "Conko Conev", false));
+        myVideoStore.setStoreUser(new User("e.elenkov@abv.bg","12345", "Elenko Elenkov", false));
+        System.out.println(myVideoStore.getAllUsers());
     }
 }

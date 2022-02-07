@@ -32,4 +32,8 @@ public class Account {
     public boolean isLogin() {
         return isSigned;
     }
+
+    public String getUserDetails() {
+        return name + " " + email;
+    }
 }
