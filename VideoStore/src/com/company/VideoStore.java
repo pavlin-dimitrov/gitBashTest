@@ -40,4 +40,15 @@ public class VideoStore {
         }
         return sb.toString();
     }
+
+    public String getUserEmail(int i){
+        return users[i].getEmail();
+    }
+
+    public String getUserPassword(int i){
+        return users[i].getPassword();
+    }
+    public int getNumberOfUsers() {
+        return numberOfUsers;
+    }
 }

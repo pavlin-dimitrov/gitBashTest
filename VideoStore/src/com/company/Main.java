@@ -5,15 +5,19 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        VideoStore myVideoStore = new VideoStore();
+        storeUsers(myVideoStore);
 
         System.out.println("Enter e-mail: ");
         String email = sc.nextLine();
         System.out.println("Enter password: ");
         String password = sc.nextLine();
 
+        boolean isUser = checkIfUserExist(myVideoStore, email, password);
+
         Admin admin = new Admin();
 
-        if ((email.equalsIgnoreCase(admin.getEmail()) && (password.equalsIgnoreCase(admin.getPassword())))) {
+        if ((email.equals(admin.getEmail()) && (password.equals(admin.getPassword())))) {
             System.out.println("Welcome admin!");
             admin.setLogin(true);
             while (admin.isLogin()) {
@@ -21,8 +25,8 @@ public class Main {
                 int option = sc.nextInt();
                 switch (option) {
                     case 1 -> System.out.println("Create new User");
-                    case 2 -> storeUsers();
-                    case 3 -> storeResource();
+                    case 2 -> System.out.println(myVideoStore.getAllUsers());
+                    case 3 -> storeResource(myVideoStore);
                     case 4 -> System.out.println("All booked VHS and users");
                     case 5 -> {
                         admin.setLogin(false);
@@ -31,13 +35,25 @@ public class Main {
                     default -> System.out.println("You are out of range, select 1 of 5 options");
                 }
             }
+        } else if(isUser == true){
+            System.out.println("this is a user...");
         } else {
             System.out.println("Wrong email or password");
         }
     }
 
-    private static void storeResource() {
-        VideoStore myVideoStore = new VideoStore();
+    private static boolean checkIfUserExist(VideoStore myVideoStore, String email, String password) {
+        boolean isUser = false;
+        for (int i = 0; i < myVideoStore.getNumberOfUsers(); i++) {
+            if (email.equals(myVideoStore.getUserEmail(i)) && password.equals(myVideoStore.getUserPassword(i))){
+                isUser = true;
+            }
+        }
+        return isUser;
+    }
+
+    private static void storeResource(VideoStore myVideoStore) {
+        //VideoStore myVideoStore = new VideoStore();
         myVideoStore.setStoreResource(new Movie("movie One"));
         myVideoStore.setStoreResource(new Movie("movie Two"));
         myVideoStore.setStoreResource(new Movie("movie Three"));
@@ -51,11 +67,10 @@ public class Main {
         System.out.println(myVideoStore.getAllResourcesDetails());
     }
 
-    private static void storeUsers(){
-        VideoStore myVideoStore = new VideoStore();
+    private static void storeUsers(VideoStore myVideoStore){
+        //VideoStore myVideoStore = new VideoStore();
         myVideoStore.setStoreUser(new User("d.dimov@abv.bg","12345", "Dimo Dimov", false));
         myVideoStore.setStoreUser(new User("c.conev@abv.bg","12345", "Conko Conev", false));
         myVideoStore.setStoreUser(new User("e.elenkov@abv.bg","12345", "Elenko Elenkov", false));
-        System.out.println(myVideoStore.getAllUsers());
     }
 }
