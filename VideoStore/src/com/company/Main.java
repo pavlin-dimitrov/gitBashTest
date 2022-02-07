@@ -7,6 +7,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         VideoStore myVideoStore = new VideoStore();
         storeUsers(myVideoStore);
+        storeResource(myVideoStore);
 
         System.out.println("Enter e-mail: ");
         String email = sc.nextLine();
@@ -14,7 +15,6 @@ public class Main {
         String password = sc.nextLine();
 
         boolean isUser = checkIfUserExist(myVideoStore, email, password);
-
         Admin admin = new Admin();
 
         if ((email.equals(admin.getEmail()) && (password.equals(admin.getPassword())))) {
@@ -53,7 +53,6 @@ public class Main {
     }
 
     private static void storeResource(VideoStore myVideoStore) {
-        //VideoStore myVideoStore = new VideoStore();
         myVideoStore.setStoreResource(new Movie("movie One"));
         myVideoStore.setStoreResource(new Movie("movie Two"));
         myVideoStore.setStoreResource(new Movie("movie Three"));
@@ -68,7 +67,6 @@ public class Main {
     }
 
     private static void storeUsers(VideoStore myVideoStore){
-        //VideoStore myVideoStore = new VideoStore();
         myVideoStore.setStoreUser(new User("d.dimov@abv.bg","12345", "Dimo Dimov", false));
         myVideoStore.setStoreUser(new User("c.conev@abv.bg","12345", "Conko Conev", false));
         myVideoStore.setStoreUser(new User("e.elenkov@abv.bg","12345", "Elenko Elenkov", false));
