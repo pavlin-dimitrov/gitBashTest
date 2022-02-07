@@ -26,7 +26,7 @@ public class Main {
                 switch (option) {
                     case 1 -> System.out.println("Create new User");
                     case 2 -> System.out.println(myVideoStore.getAllUsers());
-                    case 3 -> storeResource(myVideoStore);
+                    case 3 -> System.out.println(myVideoStore.getAllResourcesDetails());
                     case 4 -> System.out.println("All booked VHS and users");
                     case 5 -> {
                         admin.setLogin(false);
@@ -37,6 +37,10 @@ public class Main {
             }
         } else if(isUser == true){
             System.out.println("this is a user...");
+            // Rent a movie;
+            // Return a movie;
+            // Show all my rented movies;
+            // Show all available movies;
         } else {
             System.out.println("Wrong email or password");
         }
@@ -63,7 +67,6 @@ public class Main {
         myVideoStore.setStoreResource(new Movie("movie Eight"));
         myVideoStore.setStoreResource(new Movie("movie Nine"));
         myVideoStore.setStoreResource(new Movie("movie Ten"));
-        System.out.println(myVideoStore.getAllResourcesDetails());
     }
 
     private static void storeUsers(VideoStore myVideoStore){
