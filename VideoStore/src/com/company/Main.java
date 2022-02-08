@@ -19,7 +19,7 @@ public class Main {
         boolean isSigned;
 
         if (accountType.equals("admin")) {
-            System.out.println("Welcome admin!");
+            System.out.println("Welcome admin!"+ myVideoStore.getAdminName());
             isSigned = true;
             while (isSigned) {
                 System.out.println("Create new User - press 1;\n Show all users - press 2; \n Show all VHS - press 3; \n All booked VHS and users - press 4; \n LogOut - press 5");
@@ -37,7 +37,7 @@ public class Main {
                 }
             }
         } else if(accountType.equals("user")){
-            System.out.println("this is a user...");
+            System.out.println("this is a user..." + auth.getLodgedUserName(myVideoStore, email, password));
             // Rent a movie;
             // Return a movie;
             // Show all my rented movies;

@@ -3,7 +3,7 @@ package com.company;
 public class VideoStore {
     private Movie[] storeResource;
     private User[] users;
-    //private Admin admin;
+    private Admin admin;
     private int numberOfUsers;
     private int numOfResource;
 
@@ -12,9 +12,8 @@ public class VideoStore {
         this.storeResource = new Movie[11];
         this.numberOfUsers = 0;
         this.numOfResource = 0;
+        this.admin = new Admin();
     }
-
-    Admin admin = new Admin();
 
     public void setStoreResource(Movie resource) {
        storeResource[numOfResource] = resource;
@@ -48,6 +47,10 @@ public class VideoStore {
         return users[i].getEmail();
     }
 
+    public String getUserName(int i){
+        return users[i].getName();
+    }
+
     public String getUserPassword(int i){
         return users[i].getPassword();
     }
@@ -63,4 +66,6 @@ public class VideoStore {
     public String getAdminPass(){
         return admin.getPassword();
     }
+
+    public String getAdminName(){ return admin.getName();}
 }
