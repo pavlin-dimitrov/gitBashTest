@@ -43,6 +43,14 @@ public class VideoStore {
         return sb.toString();
     }
 
+    public User getUser(int i){
+        return users[i];
+    }
+
+    public Admin getAdmin(){
+        return admin;
+    }
+
     public String getUserEmail(int i){
         return users[i].getEmail();
     }
